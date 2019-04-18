@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1、将字符串‘48294746’转换成数组[4,8,2,9,4,7,4,6];并找出其中的最大数
+			var a = '48294746';
+			var b = a.split('');		//[4,8,2,9,4,7,4,6]
+			console.log(b);
+			
+			// 定义一个方法 qiuda
+			function qiuda(b){
+			  // 声明一个变量Max假设为数组中最大的值b[0];
+			   var Max = b[0];
+			   // 循环遍历数组
+			   for (var i = 0; i < b.length; i ++) {
+					// 在循环遍历时当假设的最大值小于它的后一位那么将赋予变量新的值
+					if (Max < b[i]) {
+					   Max = b[i];
+					}
+			   }
+				// 在控制台输出最大值
+				console.log(Max);
+			}
+			qiuda(b);
+			
+			//2、统计数组countryList=["America","Greece","Britain","Canada","China","Egypt"]中包含'a'或'A'元素的个数
+			//不会
+
+		</script>
+
+	</body>
+</html>
