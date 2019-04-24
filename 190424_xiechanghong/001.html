@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1、var a=[2,4,{x:2,y:3},true,[5,6]];判断a中的元素是否全为数字类型		----every()方法实现
+			var a = [2,4,{x:2,y:3},true,[5,6]];
+			var e = a.every(function(item,index){
+				return typeof(item) === "number";
+			});
+			console.log(e);							//false
+			
+			
+			//2、检测数组var num=[1,6,3,9]中元素的值是否在2-10之间（若num中有非数字返回false）
+			var num=[1,6,3,9];
+			var d = num.every(function(item,index){
+				if(item >= 2 && item <= 10){
+					return true
+				}else{
+					return false
+				}
+			});
+			console.log(d);							//false
+			
+			//3、var a=[2,4,{x:2,y:3},true,[5,6]];判断a中的元素是否全为数字类型		---some()方法实现
+			var a = [2,4,{x:2,y:3},true,[5,6]];
+			var s = a.some(function(item,index){
+				return typeof(item) === "number";
+			});
+			console.log(s);							//true
+			
+		</script>
+		
+	</body>
+</html>
