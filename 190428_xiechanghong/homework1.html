@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		今天的作业：
+			1、分别使用call和apply求任意一组数的和
+			2、Math.max()是系统自带的求一组数的最大值的方法，如Math.max(1,2,4,0,8)返回8。
+		请利用Math.max()求var a=[1,4,2,6,8,0]这个数组的最大值。
+		-->
+		<script type="text/javascript">
+			//1.
+			function add() {
+				var sum = 0;
+				for (var i = 0; i < arguments.length; i ++) {
+					sum+=arguments[i];
+				}
+				console.log(sum);
+			}
+			console.log(add.call(null,1,5)); 
+			console.log(add.apply(null,[8,11]));
+			
+			//2.
+			var a=[1,4,2,6,8,0];
+			console.log(Math.max.apply(Math,a));
+			
+		</script>
+	</body>
+</html>
