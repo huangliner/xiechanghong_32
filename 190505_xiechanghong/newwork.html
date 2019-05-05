@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			//使用构造函数的方式声明一个对象，属性和方法自定义，注意this的指向
+			
+			function User(name,age) {
+				this.name = name;
+				this.age = age;
+				this.sayHi = function() {
+					alert("我的名字是：" + this.name);
+				}
+			}
+			var userName = new User('谢昌宏', 18,);
+			
+			userName.sayHi();
+			
+		</script>
+		
+	</body>
+</html>
