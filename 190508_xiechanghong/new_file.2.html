@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+	</head>
+	<body>
+		<div id="box" style="overflow:hidden;width:700px;margin: 0 auto;">
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td id="box1"align="center">
+						<table cellpadding="2" cellspacing="0" border="0">
+							<tr align="center">
+								<td>
+									<p><img src="image/宝贝1.png"></p>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td id="box2" valign="top"></td>
+				</tr>
+			</table>
+		</div>
+		
+		<script>
+			var speed = 2;		 //速度数值越大速度越慢
+			var oB2 = document.getElementById("box2");
+			var oB1 = document.getElementById("box1");
+			var oB = document.getElementById("box");
+
+			oB2.innerHTML = oB1.innerHTML;
+
+			function Mar() {
+				
+				if(oB2.offsetWidth - oB.scrollLeft <= 0) {		//由右向左；
+					oB.scrollLeft -= oB1.offsetWidth; 			
+				}else {
+					oB.scrollLeft ++;
+				}
+			}
+			setInterval(Mar, speed);
+		</script>
+
+
+	</body>
+</html>
