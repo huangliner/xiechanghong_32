@@ -3,45 +3,86 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
 
+			#div1 {
+				width: 700px;
+				height: 700px;
+				margin: 20px auto;
+				position: relative;
+				overflow: hidden;
+
+			}
+
+			#div1 ul {
+				list-style: none;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+
+			#div1 ul li {
+				float: left;
+				list-style: none;
+				width: 700px;
+				height: 700px;
+				margin-left: 10px;
+			}
+		</style>
 	</head>
 	<body>
-		<div id="box" style="overflow:hidden;width:700px;margin: 0 auto;">
-			<table cellpadding="0" cellspacing="0" border="0">
-				<tr>
-					<td id="box1"align="center">
-						<table cellpadding="2" cellspacing="0" border="0">
-							<tr align="center">
-								<td>
-									<p><img src="image/宝贝1.png"></p>
-								</td>
-							</tr>
-						</table>
-					</td>
-					<td id="box2" valign="top"></td>
-				</tr>
-			</table>
+
+		<div id="div1">
+			<ul>
+				<li><img src="image/宝贝1.png" alt=""></li>
+				<li><img src="image/宝贝2.png" alt=""></li>
+				<li><img src="image/宝贝3.png" alt=""></li>
+				<li><img src="image/宝贝4.png" alt=""></li>
+			</ul>
 		</div>
-		
+
 		<script>
-			var speed = 2;		 //速度数值越大速度越慢
-			var oB2 = document.getElementById("box2");
-			var oB1 = document.getElementById("box1");
-			var oB = document.getElementById("box");
+			window.onload = function() {
+				var oDiv = document.getElementById('div1');
+				var oUl = document.getElementsByTagName('ul')[0];
+				var Li = oUl.getElementsByTagName('li'); 							//获取ul下的所有li
+				oUl.innerHTML = oUl.innerHTML + oUl.innerHTML; 						//li下的内容进行想加
+				oUl.style.width = Li[0].offsetWidth * Li.length + 'px'; 			//ul的宽度等于每个li的宽度乘以所有li的长度
+				var speed = 5;
 
-			oB2.innerHTML = oB1.innerHTML;
-
-			function Mar() {
-				
-				if(oB2.offsetWidth - oB.scrollLeft <= 0) {		//由右向左；
-					oB.scrollLeft -= oB1.offsetWidth; 			
-				}else {
-					oB.scrollLeft ++;
+				//主方法
+				function move() {
+					//如果左边横向滚动了长度一半之后,回到初始位置
+					if (oUl.offsetLeft < -oUl.offsetWidth / speed) {
+						oUl.style.left = '0'
+					}
+					//如果右边横向滚动的距离大于0 就让他的位置回到一半
+					if (oUl.offsetLeft > 0) {
+						oUl.style.left = -oUl.offsetWidth / speed + 'px';
+					}
+					//oUl.style.left = oUl.offsetLeft-2+'px';//进行左横向滚动
+					oUl.style.left = oUl.offsetLeft + speed + 'px'; //进行右横向滚动
 				}
-			}
-			setInterval(Mar, speed);
-		</script>
 
+				//调用方法
+				var timer = setInterval(move, 30)
+				//当鼠标移入的时候 暂停
+				oDiv.onmouseover = function() {
+					clearInterval(timer);
+				}
+				//当鼠标离开的时候 继续滚动
+				oDiv.onmouseout = function() {
+					timer = setInterval(move, 30)
+				}
+
+
+
+			}
+		</script>
 
 	</body>
 </html>
