@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style type="text/css">
+			.tab-head{
+				width: 510px;
+				height: 40px;
+			}
+			
+			h2 {
+				width: 100px;
+				height: 40px;
+				border: 1px solid #CCCCCC;
+				border-bottom: 0;
+				color: #000200;
+				float: left;
+				text-align: center;
+				font-size: 16px;
+				line-height: 40px;
+			}
+			
+			.tab-content {
+				border:1px solid #cccccc;
+				border-top: 0px;
+				border-bottom-left-radius: 30px;
+				border-bottom-right-radius: 30px;
+				width: 508px;
+				height: 150px;
+			}
+			
+			.tab-content div {
+				display: none;
+			}
+			
+			.selected {
+				background-color: #e8e8e8;
+			}
+			
+			.tab-content .show {
+				padding: 30px;
+				display: block;
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		<div class="tab-head">
+            <h2 onmouseover="changeTab(0)" class="selected" style="border-top-left-radius: 30px;">
+				公告
+			</h2>
+            <h2 onmouseover="changeTab(1)">规则</h2>
+            <h2 onmouseover="changeTab(2)">论坛</h2>
+            <h2 onmouseover="changeTab(3)">安全</h2>
+            <h2 onmouseover="changeTab(4)" style="border-top-right-radius: 30px;">
+				公益
+			</h2>
+        </div>
+        <div class="tab-content">
+            <div class="show">巴拉巴拉巴拉巴~~~</div>
+            <div>巴拉巴拉巴biu~~~</div>
+            <div>巴拉biu巴拉巴~~~</div>
+            <div>biubiu巴拉巴拉巴~~~</div>
+            <div>biubiubiu~~~</div>
+        </div>
+		
+		
+		<script type="text/javascript">
+			var tabs = document.getElementsByClassName('tab-head')[0].getElementsByTagName('h2'),
+                contents = document.getElementsByClassName('tab-content')[0].getElementsByTagName('div');
+
+            function changeTab(index) {
+                for(var i = 0, len = tabs.length; i < len; i++) {
+                    if(i === index) {
+                        tabs[i].className = 'selected';
+                        contents[i].className = 'show';
+                    }else{
+                        tabs[i].className = '';
+                        contents[i].className = '';
+                    }
+                }
+            }
+		</script>
+	</body>
+</html>
